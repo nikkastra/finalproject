@@ -1,0 +1,3 @@
+- enemies in levels 2 and 3 being tailor fitted to their level
+- items
+- scene management
