@@ -7,6 +7,7 @@
 
 #include "entity.hpp"
 #include "levelReader.hpp"
+#include "wall.hpp"
 
 class Player;
 
@@ -93,7 +94,7 @@ public:
 
     void HandleCollision(Entity* entity);
 
-    // void HandlePlatformCollision(auto entity);
+    void HandlePlatformCollision(Wall* wall);
 
     void HandleBounds(float xBound);
 

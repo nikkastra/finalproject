@@ -16,6 +16,10 @@ public:
     Color _color;
 
     Vector2 velocity;
+    bool isColliding;
+    bool isCollidingSide;
+    bool isCollidingLeft;
+    bool isCollidingRight;
     bool isCollidingDown;
     Vector2 targetTile;
 
