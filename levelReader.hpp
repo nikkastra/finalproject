@@ -77,14 +77,17 @@ void readLevel(int index){
             }
         }
         fscanf(configFile, "GRID %i %i\n", &gridSizeX, &gridSizeY);
+        grid.clear();
         for(int i = 0; i < gridSizeY; i++){
             std::vector<int> row;
             for(int j = 0; j < gridSizeX; j++){
                 int g;
                 fscanf(configFile, "%i", &g);
                 row.push_back(g);
+                std::cout << g;
             }
             grid.push_back(row);
+            std::cout << "\n";
         }
         fclose(configFile);
         std::cout << "Config file SUCCESS\n";
