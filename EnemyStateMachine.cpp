@@ -42,7 +42,7 @@ void Enemy::Draw(){
 //     current_state->Enter(*this);
 // }
 
-// void Enemy::HandleCollision(Entity* entity){
+// bool Enemy::HandleCollision(Entity* entity){
 //     targetPos = entity->_position;
 //     if(current_state == &readyingAttack || current_state == &attacking){
 //         return;

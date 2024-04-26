@@ -42,7 +42,7 @@ void Player::SetState(PlayerState* new_state){
     current_state->Enter(*this);
 }
 
-void Player::HandleCollision(Entity* entity){
+bool Player::HandleCollision(Entity* entity){
     Vector2 q;
 
     // if(current_state == &attacking){
@@ -85,17 +85,18 @@ void Player::HandleCollision(Entity* entity){
             q.y = _position.y;
         }
 
-        if(Vector2Distance(_position, q) <= _radius && !_damaged){
+        if(Vector2Distance(_position, q) <= _radius){
             // if(current_state == &dodging){
             //     _healthPoints -= 0;
             // } else if (current_state == &blocking){
             //     _healthPoints -= (int) entity->_damage/2;
             // } else {
-                _healthPoints -= (int) entity->_damage;
+                // _healthPoints -= (int) entity->_damage;
             // }
-            _damaged = true;
+            return true;
         }
     // }
+    return false;
 }
 
 // void Player::HandlePlatformCollision(auto entity){

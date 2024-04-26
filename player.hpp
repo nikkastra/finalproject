@@ -7,7 +7,6 @@
 
 #include "entity.hpp"
 #include "levelReader.hpp"
-#include "wall.hpp"
 
 class Player;
 
@@ -84,6 +83,7 @@ public:
     // PlayerAttacking attacking;
     // PlayerBlocking blocking;
 
+    Player();
     Player(Vector2 pos, float rad, float spd, int hp);
 
     void Update(float delta_time);
@@ -92,9 +92,9 @@ public:
 
     void SetState(PlayerState* new_state);
 
-    void HandleCollision(Entity* entity);
+    bool HandleCollision(Entity* entity);
 
-    void HandlePlatformCollision(Wall* wall);
+    // void HandlePlatformCollision(auto entity);
 
     void HandleBounds(float xBound);
 

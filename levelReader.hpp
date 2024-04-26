@@ -26,6 +26,8 @@ char tilesetName[20];
 Vector2 playerPos;
 Vector2 enemyOne[4];
 Vector2 enemyTwo[4];
+Vector2 itemPos;
+Texture tileMap;
 
 char level1[11] = "level1.txt";
 char level2[11] = "level2.txt";
@@ -43,7 +45,8 @@ void readLevel(int index){
     FILE* configFile = fopen(levelNames[index], "r");
     if (configFile) {
         fscanf(configFile, "IMAGE_NAME %s\n", &tilesetName);
-        int px, py, e11x, e12x, e13x, e14x, e21x, e22x, e23x, e24x, e11y, e12y, e13y, e14y, e21y, e22y, e23y, e24y;
+        tileMap = LoadTexture(tilesetName);
+        int px, py, e11x, e12x, e13x, e14x, e21x, e22x, e23x, e24x, e11y, e12y, e13y, e14y, e21y, e22y, e23y, e24y, ix, iy;
         fscanf(configFile, "PLAYER_POS %i %i\n", &px, &py);
         playerPos = {(float) px, (float) py};
         fscanf(configFile, "ENEMY_ONE_BEZIER_POINTS %i %i %i %i %i %i %i %i\n", &e11x, &e11y, &e12x, &e12y, &e13x, &e13y, &e14x, &e14y);
@@ -56,6 +59,8 @@ void readLevel(int index){
         enemyTwo[1] = {(float) e22x, (float) e22y,};
         enemyTwo[2] = {(float) e23x, (float) e23y,};
         enemyTwo[3] = {(float) e24x, (float) e24y,};
+        fscanf(configFile, "ITEM_POS %i %i\n", &ix, &iy);
+        itemPos = {(float) ix, (float) iy};
         fscanf(configFile, "TILE_COUNT %i\n", &tileCount);
         
         int h,w,x,y;
